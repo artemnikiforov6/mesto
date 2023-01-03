@@ -1,0 +1,7 @@
+.profile__info-edit-button {
+  margin: 0;
+  background-image: url("../../../images/profile_edit_button.svg");
+  width: 24px;
+  height: 24px;
+  align-self: center;
+}

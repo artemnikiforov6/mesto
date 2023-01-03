@@ -1,0 +1,6 @@
+.profile {
+  padding: 0 200px 0 200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
+}
