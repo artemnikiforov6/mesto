@@ -1,6 +1,13 @@
 .profile {
-  padding: 0 200px 0 200px;
+  padding: 42px 19px 36px 19px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: min-content 1fr min-content;
+  max-width: 880px;
+}
+
+@media screen and (min-width: 1280px) {
+  .profile {
+    padding: 0 200px 0 200px;
+    grid-template-columns: min-content 1fr min-content;
+  }
 }
