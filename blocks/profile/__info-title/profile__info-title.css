@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .profile__info-title {
     font-family: 'Inter', 'Arial', sans-serif;
     font-size: 42px;

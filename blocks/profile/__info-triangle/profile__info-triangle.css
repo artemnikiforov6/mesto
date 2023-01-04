@@ -8,7 +8,13 @@
   margin: auto;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
+  .profile__info-triangle {
+    width: 581px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .profile__info-triangle {
     width: 150px;
   }

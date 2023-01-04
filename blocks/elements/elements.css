@@ -6,9 +6,18 @@
   max-width: 880px;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .elements {
-    padding: 36px 200px 66px 200px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: min-content min-content;
+    justify-content: center;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .elements {
+    grid-template-columns: min-content min-content min-content;
+    justify-content: center;
+    padding: 36px 0 66px 0;
+  }
+}
+

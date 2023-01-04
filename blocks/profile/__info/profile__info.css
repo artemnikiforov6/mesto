@@ -1,11 +1,21 @@
 .profile__info {
   padding-top: 26px;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 282px;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
+  .profile__info {
+    max-width: 581px;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
   .profile__info {
     display: block;
     padding-left: 30px;
+    margin: 0;
+    max-width: 380px;
   }
 }
