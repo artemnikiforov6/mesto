@@ -1,12 +1,21 @@
 .profile__info-edit-button {
+  background-image: url("../../../images/profile_edit_button_320.svg");
   margin: 0;
   width: 18px;
+  height: 18px;
   align-self: center;
   object-fit: fill;
 }
 
+.profile__info-edit-button:hover {
+  opacity: 0.6;
+  transition: opacity .2s linear;
+}
+
 @media screen and (min-width: 1024px) {
   .profile__info-edit-button {
+    background-image: url("../../../images/profile_edit_button_1280.svg");
     width: 24px;
+    height: 24px;
   }
 }

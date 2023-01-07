@@ -4,3 +4,13 @@
   height: 19px;
   align-self: center;
 }
+
+.elements__element-vector:hover {
+  opacity: 0.5;
+  transition: opacity .2s linear;
+}
+
+.elements__element-vector:active {
+  background-image: url("../../../../images/like_vector_active.svg");
+  transition: background-image .2s linear;
+}
