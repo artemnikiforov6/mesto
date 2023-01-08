@@ -5,6 +5,9 @@
   height: 18px;
   align-self: center;
   object-fit: fill;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 .profile__info-edit-button:hover {

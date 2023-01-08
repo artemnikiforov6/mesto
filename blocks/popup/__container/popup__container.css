@@ -1,0 +1,16 @@
+.popup__container {
+  width: 282px;
+  height: 322px;
+  white-space: normal;
+  background-color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .popup__container {
+    width: 430px;
+    height: 330px
+  }
+}

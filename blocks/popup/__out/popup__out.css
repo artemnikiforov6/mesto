@@ -1,0 +1,8 @@
+.popup__out {
+  vertical-align: middle;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
