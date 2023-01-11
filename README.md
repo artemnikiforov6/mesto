@@ -18,7 +18,7 @@
 * В расположении элементов используется Грид-раскладка
 
 
-[Cсылка на GitHub Pages](https://artemnikiforov6.github.io/russian-travel/)
+[Cсылка на GitHub Pages](https://artemnikiforov6.github.io/mesto/)
 
 
 
