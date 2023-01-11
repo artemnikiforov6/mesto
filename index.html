@@ -6,22 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto Russia</title>
   <link rel="stylesheet" href="./pages/style.css">
-  <script src="./scripts/script.js"></script>
 </head>
 <body>
   <main class="page">
-    <section class="popup">
+    <div class="popup">
       <div class="popup__out">
         <form class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input class="popup__form popup__name" name="textfield" type="text" value="Жак-Ив Кусто" placeholder="Имя">
           <input class="popup__form popup__about" name="textfield" type="text" value="Исследователь океана" placeholder="О себе">
           <button class="popup__button" type="submit">Сохранить</button>
-          <button class="popup__close" type="close"></button>
+          <button class="popup__close" type="button"></button>
         </form>
-
       </div>
-    </section>
+    </div>
     <header class="header">
       <img class="header__logo" src="./images/mesto_logo.svg" alt="логотип место">
       <div class="header__line"></div>
@@ -31,7 +29,7 @@
       <div class="profile__info">
         <div class="profile__main-info">
           <h1 class="profile__info-title">Жак-Ив Кусто</h1>
-          <button class="profile__info-edit-button"></button>
+          <button class="profile__info-edit-button" type="button"></button>
         </div>
         <h2 class="profile__info-subtitle">Исследователь океана</h2>
       </div>
@@ -39,51 +37,53 @@
     </section>
     <section class="elements">
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/karachaevsk.jpg" alt="старый храм в карачаевске">
+        <img class="elements__element-picture" src="./images/kazbegi.jpg" alt="гора казбег">
         <div class="elements__element-group">
-          <h2 class="elements__element-title">Карачаевск</h2>
+          <h2 class="elements__element-title">Гора Казбеги</h2>
           <button class="elements__element-vector"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/elbrus-mountain.jpg" alt="старый храм в карачаевске">
+        <img class="elements__element-picture" src="./images/skye_island.jpg" alt="остров скай">
         <div class="elements__element-group">
-          <h2 class="elements__element-title">Гора Эльбрус</h2>
+          <h2 class="elements__element-title">Остров Скай</h2>
+          <button class="elements__element-vector"></button>
+        </div>
+      </div>
+      </div>
+      <div class="elements__element">
+        <img class="elements__element-picture" src="./images/england.jpg" alt="горы Англии">
+        <div class="elements__element-group">
+          <h2 class="elements__element-title">Англия</h2>
           <button class="elements__element-vector"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/karachaevsk.jpg" alt="старый храм в карачаевске">
+        <img class="elements__element-picture" src="./images/montenegro.jpg" alt="черногория">
         <div class="elements__element-group">
-          <h2 class="elements__element-title">Карачаевск</h2>
+          <h2 class="elements__element-title">Черногория</h2>
           <button class="elements__element-vector"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/karachaevsk.jpg" alt="старый храм в карачаевске">
+        <img class="elements__element-picture" src="./images/caribbean.jpg" alt="карибы">
         <div class="elements__element-group">
-          <h2 class="elements__element-title">Карачаевск</h2>
+          <h2 class="elements__element-title">Карибы</h2>
           <button class="elements__element-vector"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/karachaevsk.jpg" alt="старый храм в карачаевске">
+        <img class="elements__element-picture" src="./images/czech.jpg" alt="чехия">
         <div class="elements__element-group">
-          <h2 class="elements__element-title">Карачаевск</h2>
+          <h2 class="elements__element-title">Чехия</h2>
           <button class="elements__element-vector"></button>
         </div>
-      </div>
-      <div class="elements__element">
-        <img class="elements__element-picture" src="./images/karachaevsk.jpg" alt="старый храм в карачаевске">
-        <div class="elements__element-group">
-          <h2 class="elements__element-title">Карачаевск</h2>
-          <button class="elements__element-vector"></button>
-        </div>
-      </div>
     </section>
     <footer class="footer">
       <p class="footer__copyrights">© 2022 Mesto Russia</p>
     </footer>
+
   </main>
+  <script src="./scripts/script.js"></script>
 </body>
 </html>

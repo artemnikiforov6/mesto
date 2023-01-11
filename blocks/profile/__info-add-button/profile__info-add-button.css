@@ -5,6 +5,7 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
+  margin: auto;
 }
 
 .profile__info-add-button:hover {
