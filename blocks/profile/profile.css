@@ -8,7 +8,7 @@
 @media screen and (min-width: 1024px) {
   .profile {
     grid-template-columns: min-content 1fr min-content;
-    padding-top: 0;
+    padding-top: 33px;
   }
 }
 

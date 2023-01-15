@@ -1,5 +1,7 @@
 .header {
   margin: 0 auto;
+  border-bottom: 1px solid rgb(84, 84, 84, 0.7);
+  padding-bottom: 27px;
 }
 
 @media screen and (min-width: 768px) {

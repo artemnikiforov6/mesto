@@ -1,4 +1,4 @@
-.elements__element-vector {
+.elements__vector {
   background-image: url("../../../../images/like_vector.svg");
   width: 22px;
   height: 19px;
@@ -8,12 +8,12 @@
   cursor: pointer;
 }
 
-.elements__element-vector:hover {
+.elements__vector:hover {
   opacity: 0.5;
   transition: opacity .2s linear;
 }
 
-.elements__element-vector:active {
+.elements__vector:active {
   background-image: url("../../../../images/like_vector_active.svg");
   transition: background-image .2s linear;
 }

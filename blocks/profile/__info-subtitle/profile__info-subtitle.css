@@ -7,6 +7,9 @@
   text-align: center;
   padding-top: 8px;
   padding-bottom: 32px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 1024px) {

@@ -7,23 +7,22 @@
   <title>Mesto Russia</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body>
-  <main class="page">
+<body class="page">
+  <header class="header">
+    <img class="header__logo" src="./images/mesto_logo.svg" alt="логотип место">
+  </header>
+  <main>
     <div class="popup">
-      <div class="popup__out">
-        <form class="popup__container">
+        <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__form popup__name" name="textfield" type="text" value="Жак-Ив Кусто" placeholder="Имя">
-          <input class="popup__form popup__about" name="textfield" type="text" value="Исследователь океана" placeholder="О себе">
-          <button class="popup__button" type="submit">Сохранить</button>
+          <form class="popup__submit-form" name="popup-submit-form">
+            <input class="popup__form" id="popup__name" name="textfield" type="text" value="Жак-Ив Кусто" placeholder="Имя">
+            <input class="popup__form" id="popup__about" name="textfield" type="text" value="Исследователь океана" placeholder="О себе">
+            <button class="popup__button" type="submit">Сохранить</button>
+          </form>
           <button class="popup__close" type="button"></button>
-        </form>
-      </div>
+        </div>
     </div>
-    <header class="header">
-      <img class="header__logo" src="./images/mesto_logo.svg" alt="логотип место">
-      <div class="header__line"></div>
-    </header>
     <section class="profile">
       <img class="profile__avatar" src="./images/profile_avatar.jpg" alt="аватар профиля">
       <div class="profile__info">
@@ -33,56 +32,56 @@
         </div>
         <h2 class="profile__info-subtitle">Исследователь океана</h2>
       </div>
-      <button class="profile__info-add-button"></button>
+      <button class="profile__info-add-button" type="button"></button>
     </section>
     <section class="elements">
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/kazbegi.jpg" alt="гора казбег">
-        <div class="elements__element-group">
-          <h2 class="elements__element-title">Гора Казбеги</h2>
-          <button class="elements__element-vector"></button>
+        <img class="elements__picture" src="./images/kazbegi.jpg" alt="гора казбег">
+        <div class="elements__group">
+          <h2 class="elements__title">Гора Казбеги</h2>
+          <button class="elements__vector" type="button"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/skye_island.jpg" alt="остров скай">
-        <div class="elements__element-group">
-          <h2 class="elements__element-title">Остров Скай</h2>
-          <button class="elements__element-vector"></button>
+        <img class="elements__picture" src="./images/skye_island.jpg" alt="остров скай">
+        <div class="elements__group">
+          <h2 class="elements__title">Остров Скай</h2>
+          <button class="elements__vector" type="button"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/england.jpg" alt="горы Англии">
-        <div class="elements__element-group">
-          <h2 class="elements__element-title">Англия</h2>
-          <button class="elements__element-vector"></button>
+        <img class="elements__picture" src="./images/england.jpg" alt="горы Англии">
+        <div class="elements__group">
+          <h2 class="elements__title">Англия</h2>
+          <button class="elements__vector" type="button"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/montenegro.jpg" alt="черногория">
-        <div class="elements__element-group">
-          <h2 class="elements__element-title">Черногория</h2>
-          <button class="elements__element-vector"></button>
+        <img class="elements__picture" src="./images/montenegro.jpg" alt="черногория">
+        <div class="elements__group">
+          <h2 class="elements__title">Черногория</h2>
+          <button class="elements__vector" type="button"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/caribbean.jpg" alt="карибы">
-        <div class="elements__element-group">
-          <h2 class="elements__element-title">Карибы</h2>
-          <button class="elements__element-vector"></button>
+        <img class="elements__picture" src="./images/caribbean.jpg" alt="карибы">
+        <div class="elements__group">
+          <h2 class="elements__title">Карибы</h2>
+          <button class="elements__vector" type="button"></button>
         </div>
       </div>
       <div class="elements__element">
-        <img class="elements__element-picture" src="./images/czech.jpg" alt="чехия">
-        <div class="elements__element-group">
-          <h2 class="elements__element-title">Чехия</h2>
-          <button class="elements__element-vector"></button>
+        <img class="elements__picture" src="./images/czech.jpg" alt="чехия">
+        <div class="elements__group">
+          <h2 class="elements__title">Чехия</h2>
+          <button class="elements__vector" type="button"></button>
         </div>
       </div>
     </section>
-    <footer class="footer">
-      <p class="footer__copyrights">© 2022 Mesto Russia</p>
-    </footer>
   </main>
+  <footer class="footer">
+    <p class="footer__copyrights">© 2022 Mesto Russia</p>
+  </footer>
   <script src="./scripts/script.js"></script>
 </body>
 </html>
