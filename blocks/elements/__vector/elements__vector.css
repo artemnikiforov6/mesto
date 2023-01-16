@@ -1,5 +1,5 @@
 .elements__vector {
-  background-image: url("../../../../images/like_vector.svg");
+  background-image: url("../../../images/like_vector.svg");
   width: 22px;
   height: 19px;
   align-self: center;
@@ -14,6 +14,6 @@
 }
 
 .elements__vector:active {
-  background-image: url("../../../../images/like_vector_active.svg");
+  background-image: url("../../../images/like_vector_active.svg");
   transition: background-image .2s linear;
 }
