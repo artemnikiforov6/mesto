@@ -9,6 +9,7 @@
   position: absolute;
   right: 20px;
   top: 20px;
+  background-repeat: no-repeat;
 }
 
 .elements__trash:hover {

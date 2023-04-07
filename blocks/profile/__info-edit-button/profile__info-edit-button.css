@@ -9,6 +9,7 @@
   border: 0;
   cursor: pointer;
   flex-shrink: 0;
+  background-repeat: no-repeat;
 }
 
 .profile__info-edit-button:hover {
