@@ -9,6 +9,7 @@
   cursor: pointer;
   position: absolute;
   top: -35px;
+  right: 0;
 }
 
 .popup__close:hover {
