@@ -10,8 +10,8 @@ const profileName = document.querySelector('.profile__info-title');
 const profileSubtitle = document.querySelector('.profile__info-subtitle');
 const popupEditForm = document.querySelector('.popup_edit-form');
 const popupAddForm = document.querySelector('.popup_add-form');
-const popupEdiFormClose = document.querySelector('.popup_edit-form-close');
-const popupAddFormClose = document.querySelector('.popup_add-form-close');
+const popupEdiFormClose = document.querySelector('.popup__close_edit_form');
+const popupAddFormClose = document.querySelector('.popup__close_add-form');
 
 
 //функция открытия и закрытия попапа.
@@ -98,7 +98,7 @@ const createCard = (card) => {
 
     cardImage.addEventListener('click', function() {
 
-      const popupImageCard = document.querySelector('.popup__image');
+      const popupImageCard = document.querySelector('.popup_image');
       const popupImage = popupImageCard.querySelector('.popup__image-element');
       const popupImageTitle = popupImageCard.querySelector('.popup__image-title');
 
@@ -175,7 +175,7 @@ function addCard (card) {
 
   cardImage.addEventListener('click', function() {
 
-    const popupImageCard = document.querySelector('.popup__image');
+    const popupImageCard = document.querySelector('.popup_image');
     const popupImage = popupImageCard.querySelector('.popup__image-element');
     const popupImageTitle = popupImageCard.querySelector('.popup__image-title');
 
