@@ -20,7 +20,7 @@
             <input class="popup__form" id="popup__about" name="textfield" type="text" value="Исследователь океана" placeholder="О себе">
             <button class="popup__button" type="submit">Сохранить</button>
           </form>
-          <button class="popup__close popup__close_edit_form" type="button"></button>
+          <button aria-label="Close" class="popup__close popup__close_edit_form" type="button"></button>
         </div>
     </div>
     <div class="popup popup_add-form">
@@ -31,51 +31,43 @@
           <input class="popup__form" id="popup__link_place" name="textfield" type="text" value="" placeholder="Ссылка на картинку">
           <button class="popup__button" type="submit">Создать</button>
         </form>
-        <button class="popup__close popup__close_add-form" type="button"></button>
+        <button aria-label="Close" class="popup__close popup__close_add-form" type="button"></button>
       </div>
     </div>
-
-
   <div class="popup popup_image">
     <div class="popup__image-container">
-      <img class="popup__image-element" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg" alt="гора казбег">
-      <h2 class="popup__image-title">Гора Казбеги</h2>
-      <button class="popup__close popup__image-close" type="button"></button>
+      <img class="popup__image-element" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg" alt="Здесь должна быть картинка">
+      <h2 class="popup__image-title">Название места</h2>
+      <button aria-label="Close" class="popup__close popup__image-close" type="button"></button>
     </div>
   </div>
-
-
     <section class="profile">
       <img class="profile__avatar" src="./images/profile_avatar.jpg" alt="аватар профиля">
       <div class="profile__info">
         <div class="profile__main-info">
           <h1 class="profile__info-title">Жак-Ив Кусто</h1>
-          <button class="profile__info-edit-button" type="button"></button>
+          <button aria-label="Edit" class="profile__info-edit-button" type="button"></button>
         </div>
         <h2 class="profile__info-subtitle">Исследователь океана</h2>
       </div>
-      <button class="profile__info-add-button" type="button"></button>
+      <button aria-label="Add" class="profile__info-add-button" type="button"></button>
     </section>
-
-
     <div class="elements">
       <template id="elements__element">
         <div class="elements__element">
-          <button class="elements__trash" type="button"></button>
-          <img class="elements__picture" src="./images/kazbegi.jpg" alt="гора казбег">
+          <button aria-label="Delete" class="elements__trash" type="button"></button>
+          <img class="elements__picture" src=" " alt="Здесь должна быть картинка">
           <div class="elements__group">
-            <h2 class="elements__title">Гора Казбеги</h2>
-            <button class="elements__vector" type="button"></button>
+            <h2 class="elements__title">Название места</h2>
+            <button aria-label="Like" class="elements__vector" type="button"></button>
           </div>
         </div>
       </template>
     </div>
-
-
   </main>
   <footer class="footer">
     <p class="footer__copyrights">© 2022 Mesto Russia</p>
   </footer>
-  <script src="./scripts/script.js"></script>
+  <script defer src="./scripts/script.js"></script>
 </body>
 </html>

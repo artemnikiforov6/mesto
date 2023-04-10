@@ -1,5 +1,6 @@
 .popup__image-element {
   width: 100%;
+  color: white;
 }
 
 @media screen and (min-width: 1024px) {

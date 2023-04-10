@@ -1,17 +1,18 @@
-const popupElement = document.querySelector('.popup');
-const popupCloseButton = popupElement.querySelector('.popup__close');
+// const popupElement = document.querySelector('.popup');
+// const popupCloseButton = document.querySelector('.popup__close');
 const popupProfileOpenButton = document.querySelector('.profile__info-edit-button');
 const popupAddButton = document.querySelector('.profile__info-add-button');
-const formElement = document.querySelector('.popup__submit-form');
+const popupEditForm = document.querySelector('.popup_edit-form');
+const formElement = popupEditForm.querySelector('.popup__submit-form');
 const newPlaceElement = document.querySelector('.popup__newplace-form');
 const nameInput = formElement.querySelector('#popup__name');
 const jobInput = formElement.querySelector('#popup__about');
 const profileName = document.querySelector('.profile__info-title');
 const profileSubtitle = document.querySelector('.profile__info-subtitle');
-const popupEditForm = document.querySelector('.popup_edit-form');
 const popupAddForm = document.querySelector('.popup_add-form');
 const popupEdiFormClose = document.querySelector('.popup__close_edit_form');
 const popupAddFormClose = document.querySelector('.popup__close_add-form');
+const popupImageCard = document.querySelector('.popup_image');
 
 
 //функция открытия и закрытия попапа.
@@ -25,17 +26,17 @@ function closePopup(popup) {
 
 
 //Обработчик «отправки» формы.
-function handleFormSubmit (evt) {
+function handleEditFormSubmit (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 
   profileName.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
 
-  closePopup(popupElement);
+  closePopup(popupEditForm);
 };
 
 //Следим за событием “submit” - «отправка»
-formElement.addEventListener('submit', handleFormSubmit);
+formElement.addEventListener('submit', handleEditFormSubmit);
 
 //Открываем форму редактирования профиля.
 popupProfileOpenButton.addEventListener('click', () => {
@@ -86,7 +87,7 @@ const templateCard = document.querySelector('#elements__element').content;
 
 
 
-//функция создания новой карточки
+//функция создания новых карточек
 const createCard = (card) => {
     const userCard = templateCard.cloneNode(true);
     const cardImage = userCard.querySelector('.elements__picture');
@@ -98,7 +99,6 @@ const createCard = (card) => {
 
     cardImage.addEventListener('click', function() {
 
-      const popupImageCard = document.querySelector('.popup_image');
       const popupImage = popupImageCard.querySelector('.popup__image-element');
       const popupImageTitle = popupImageCard.querySelector('.popup__image-title');
 
@@ -134,7 +134,7 @@ const createCard = (card) => {
 
 
 //помещаем новую карточку в верстку
-const renderCard = (cards, cardsContainer) => {
+const renderInitialCard = (cards, cardsContainer) => {
     cards.forEach(card => {
         const userCard = createCard(card);
         cardsContainer.appendChild(userCard);
@@ -142,7 +142,7 @@ const renderCard = (cards, cardsContainer) => {
 }
 
 
-renderCard(initialCards, cardsContainer);
+renderInitialCard(initialCards, cardsContainer);
 
 
 popupAddButton.addEventListener('click', () => {
@@ -208,9 +208,3 @@ function addCard (card) {
     card.remove();
   });
 }
-
-
-
-
-
-
