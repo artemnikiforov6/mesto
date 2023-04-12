@@ -42,13 +42,9 @@ function createCard(cardText, cardImgSrc) {
     const popupImageTitle = popupImageCard.querySelector('.popup__image-title');
 
     popupImage.src = cardImageElement.src;
-    popupImageTitle.textContent = cardImageElement.textContent;
+    popupImageTitle.textContent = cardImageElement.alt;
 
     openPopup(popupImageCard);
-
-    document.querySelector('.popup__image-close').addEventListener('click', () => {
-      closePopup(popupImageCard)
-    });
   });
 
   userCardTemplate.querySelector('.elements__vector').addEventListener('click', likeUserCard);
@@ -130,6 +126,10 @@ function initialEventsListeners() {
 
   popupEdiFormClose.addEventListener('click', () => {
     closePopup(popupEditForm)
+  });
+
+  document.querySelector('.popup__image-close').addEventListener('click', () => {
+    closePopup(popupImageCard)
   });
 }
 
