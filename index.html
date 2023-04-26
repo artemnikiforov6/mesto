@@ -15,9 +15,11 @@
     <div class="popup popup_edit-form">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__submit-form" name="popup-submit-form">
-            <input class="popup__form" id="popup__name" name="textfield" type="text" value="Жак-Ив Кусто" placeholder="Имя">
-            <input class="popup__form" id="popup__about" name="textfield" type="text" value="Исследователь океана" placeholder="О себе">
+          <form class="popup__submit-form popup__form" name="popup-submit-form" novalidate>
+            <input class="popup__input" minlength="2" maxlength="40" id="popup__name" name="textfield" type="text" value="Жак-Ив Кусто" placeholder="Имя" required autocomplete="off">
+            <span id="error-popup__name" class="popup__input-error"></span>
+            <input class="popup__input" minlength="2" maxlength="200" id="popup__about" name="textfield" type="text" value="Исследователь океана" placeholder="О себе" required autocomplete="off">
+            <span id="error-popup__about" class="popup__input-error"></span>
             <button class="popup__button" type="submit">Сохранить</button>
           </form>
           <button aria-label="Закрыть" class="popup__close popup__close_edit_form" type="button"></button>
@@ -26,9 +28,11 @@
     <div class="popup popup_add-form">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__newplace-form" name="popup-newplace-form">
-          <input class="popup__form" id="popup__name_place" name="textfield" type="text" value="" placeholder="Название">
-          <input class="popup__form" id="popup__link_place" name="textfield" type="text" value="" placeholder="Ссылка на картинку">
+        <form class="popup__newplace-form popup__form" name="popup-newplace-form" novalidate>
+          <input class="popup__input" minlength="2" maxlength="30" id="popup__name_place" name="textfield" type="text" value="" placeholder="Название" required autocomplete="off">
+          <span id="error-popup__name_place" class="popup__input-error"></span>
+          <input class="popup__input" type="url" id="popup__link_place" name="textfield" type="text" value="" placeholder="Ссылка на картинку" required autocomplete="off">
+          <span id="error-popup__link_place" class="popup__input-error"></span>
           <button class="popup__button" type="submit">Создать</button>
         </form>
         <button aria-label="Закрыть" class="popup__close popup__close_add-form" type="button"></button>

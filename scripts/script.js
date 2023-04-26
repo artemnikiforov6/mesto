@@ -1,18 +1,34 @@
 const popupProfileOpenButton = document.querySelector('.profile__info-edit-button');
 const popupAddButton = document.querySelector('.profile__info-add-button');
 const popupEditForm = document.querySelector('.popup_edit-form');
-const formElement = popupEditForm.querySelector('.popup__submit-form');
-const newPlaceElement = document.querySelector('.popup__newplace-form');
-const nameInput = formElement.querySelector('#popup__name');
-const jobInput = formElement.querySelector('#popup__about');
+const popupAddForm = document.querySelector('.popup_add-form');
+const profileEditForm = popupEditForm.querySelector('.popup__submit-form');
+const newPlaceAddForm = document.querySelector('.popup__newplace-form');
+const nameInput = profileEditForm.querySelector('#popup__name');
+const jobInput = profileEditForm.querySelector('#popup__about');
 const profileName = document.querySelector('.profile__info-title');
 const profileSubtitle = document.querySelector('.profile__info-subtitle');
-const popupAddForm = document.querySelector('.popup_add-form');
 const popupEdiFormClose = document.querySelector('.popup__close_edit_form');
 const popupAddFormClose = document.querySelector('.popup__close_add-form');
 const popupImageCard = document.querySelector('.popup_image');
 const cardsContainer = document.querySelector('.elements');
 const templateCard = document.querySelector('#elements__element').content;
+const allPopups = document.querySelectorAll('.popup');
+
+const popupAddFormElements = {
+  name: 'addForm',
+  inputs: popupAddForm.querySelectorAll('.popup__input'),
+  button: popupAddForm.querySelector('.popup__button'),
+  formElement: newPlaceAddForm
+}
+
+const popupEditFormElements = {
+  name: 'editForm',
+  inputs: popupEditForm.querySelectorAll('.popup__input'),
+  button: popupEditForm.querySelector('.popup__button'),
+  formElement: profileEditForm
+}
+
 
 // Функции ------------------------------------------------------
 
@@ -42,7 +58,7 @@ function createCard(cardText, cardImgSrc) {
     const popupImageTitle = popupImageCard.querySelector('.popup__image-title');
 
     popupImage.src = cardImageElement.src;
-    popupImageTitle.textContent = cardImageElement.alt;
+    popupImageTitle.textContent = cardTitleElement.textContent;
 
     openPopup(popupImageCard);
   });
@@ -56,13 +72,39 @@ function createCard(cardText, cardImgSrc) {
 
 // Открывает попап
 function openPopup(popup) {
-  popup.classList.add('popup_opened')
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc)
 }
 
 // Закрывает попап
 function closePopup(popup) {
-  popup.classList.remove('popup_opened')
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc)
 }
+//Функция закрытия по клавише ESC
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    allPopups.forEach(popup => {
+      closePopup(popup);
+    });
+  }
+};
+
+// Слушатель закрытия при нажатии на Overlay
+document.addEventListener('click', (event) => {
+  allPopups.forEach((modal) => {
+    if (event.target === modal) {
+      closePopupOverlay(modal);
+    }
+  });
+});
+
+//Функция закрытия при нажатии на Overlay
+function closePopupOverlay(evt) {
+  allPopups.forEach((modalElement) => {
+    closePopup(modalElement);
+  });
+};
 
 // Создание новой карточки из формы
 function handleEditFormSubmit(evt) {
@@ -112,10 +154,10 @@ function initialEventsListeners() {
     closePopup(popupAddForm)
   });
 
-  newPlaceElement.addEventListener('submit', handleAddFormSubmit);
+  newPlaceAddForm.addEventListener('submit', handleAddFormSubmit);
 
 //Следим за событием “submit” - «отправка»
-  formElement.addEventListener('submit', handleEditFormSubmit);
+  profileEditForm.addEventListener('submit', handleEditFormSubmit);
 
 //Открываем форму редактирования профиля.
   popupProfileOpenButton.addEventListener('click', () => {
@@ -133,7 +175,77 @@ function initialEventsListeners() {
   });
 }
 
+
+// Валидация ------------------------------------------------------
+
+// Установка инпуту валидное состояние
+function setInputValidState(input, errorElement) {
+  input.classList.remove('popup__input_invalid');
+  errorElement.textContent = '';
+};
+
+// Установка инпуту невалидное состояние
+function setInputInvalidState(input, errorElement) {
+  input.classList.add('popup__input_invalid');
+  errorElement.textContent = input.validationMessage;
+};
+
+// Функция, которая проверяет валидность поля
+function checkInputValidity(input) {
+  const errorElement = document.querySelector(`#error-${input.id }`);
+
+  if (input.checkValidity()) {
+    setInputValidState(input, errorElement);
+  } else {
+    setInputInvalidState(input, errorElement);
+  }
+}
+
+// Деактивация кнопки
+function disableButton(btn) {
+  btn.setAttribute('disabled', '');
+  btn.classList.add('popup__button_disabled');
+};
+
+// Активация кнопки
+function enableButton(btn) {
+  btn.removeAttribute('disabled');
+  btn.classList.remove('popup__button_disabled');
+};
+
+// Функция, которая проверяет блокировать кнопку или нет
+function toggleButtonValidity(form) {
+  if (form.formElement.checkValidity()) {
+    enableButton(form.button);
+  } else {
+    disableButton(form.button);
+  }
+};
+
+// Обработка события изменения данных в инпутах форм
+function enableValidationInputs(forms) {
+  forms.forEach(form => {
+    if (form.name === 'addForm') {
+      disableButton(form.button)
+    }
+
+    form.inputs.forEach(formInput => {
+      formInput.addEventListener('input', () => {
+        checkInputValidity(formInput);
+        toggleButtonValidity(form)
+      });
+    })
+  })
+}
+
+// Инициализируем валидацию форм
+function enableValidation(forms) {
+  enableValidationInputs(forms)
+};
+
 // Инициализация ------------------------------------------------------
 
 renderInitialCard(initialCards);
 initialEventsListeners();
+enableValidation([popupAddFormElements, popupEditFormElements]);
+

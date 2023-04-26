@@ -4,9 +4,3 @@
   margin-right: 40px;
 }
 
-@media screen and (min-width: 768px) {
-  .popup__image-container {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-}
