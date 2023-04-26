@@ -29,7 +29,6 @@ const popupEditFormElements = {
   formElement: profileEditForm
 }
 
-
 // Функции ------------------------------------------------------
 
 // Активирует лайк карточки
