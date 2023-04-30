@@ -72,7 +72,13 @@ function createCard(cardText, cardImgSrc) {
 // Открывает попап
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupEsc)
+  document.addEventListener('keydown', closePopupEsc);
+
+  popup.addEventListener('click', evt => { // Слушатель закрытия при нажатии на Overlay
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
+  });
 }
 
 // Закрывает попап
@@ -80,29 +86,13 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc)
 }
+
 //Функция закрытия по клавише ESC
 function closePopupEsc(evt) {
+  popupOpened = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
-    allPopups.forEach(popup => {
-      closePopup(popup);
-    });
-  }
-};
-
-// Слушатель закрытия при нажатии на Overlay
-document.addEventListener('click', (event) => {
-  allPopups.forEach((modal) => {
-    if (event.target === modal) {
-      closePopupOverlay(modal);
-    }
-  });
-});
-
-//Функция закрытия при нажатии на Overlay
-function closePopupOverlay(evt) {
-  allPopups.forEach((modalElement) => {
-    closePopup(modalElement);
-  });
+      closePopup(popupOpened);
+  };
 };
 
 // Создание новой карточки из формы
@@ -146,7 +136,8 @@ function handleAddFormSubmit(evt) {
 // Инициализирует слушатели событий
 function initialEventsListeners() {
   popupAddButton.addEventListener('click', () => {
-    openPopup(popupAddForm)
+    openPopup(popupAddForm);
+    // disableButton(popupAddFormElements.button);
   });
 
   popupAddFormClose.addEventListener('click', () => {
@@ -162,7 +153,7 @@ function initialEventsListeners() {
   popupProfileOpenButton.addEventListener('click', () => {
     nameInput.value = profileName.textContent;
     jobInput.value = profileSubtitle.textContent;
-    openPopup(popupEditForm)
+    openPopup(popupEditForm);
   });
 
   popupEdiFormClose.addEventListener('click', () => {
@@ -174,77 +165,7 @@ function initialEventsListeners() {
   });
 }
 
-
-// Валидация ------------------------------------------------------
-
-// Установка инпуту валидное состояние
-function setInputValidState(input, errorElement) {
-  input.classList.remove('popup__input_invalid');
-  errorElement.textContent = '';
-};
-
-// Установка инпуту невалидное состояние
-function setInputInvalidState(input, errorElement) {
-  input.classList.add('popup__input_invalid');
-  errorElement.textContent = input.validationMessage;
-};
-
-// Функция, которая проверяет валидность поля
-function checkInputValidity(input) {
-  const errorElement = document.querySelector(`#error-${input.id }`);
-
-  if (input.checkValidity()) {
-    setInputValidState(input, errorElement);
-  } else {
-    setInputInvalidState(input, errorElement);
-  }
-}
-
-// Деактивация кнопки
-function disableButton(btn) {
-  btn.setAttribute('disabled', '');
-  btn.classList.add('popup__button_disabled');
-};
-
-// Активация кнопки
-function enableButton(btn) {
-  btn.removeAttribute('disabled');
-  btn.classList.remove('popup__button_disabled');
-};
-
-// Функция, которая проверяет блокировать кнопку или нет
-function toggleButtonValidity(form) {
-  if (form.formElement.checkValidity()) {
-    enableButton(form.button);
-  } else {
-    disableButton(form.button);
-  }
-};
-
-// Обработка события изменения данных в инпутах форм
-function enableValidationInputs(forms) {
-  forms.forEach(form => {
-    if (form.name === 'addForm') {
-      disableButton(form.button)
-    }
-
-    form.inputs.forEach(formInput => {
-      formInput.addEventListener('input', () => {
-        checkInputValidity(formInput);
-        toggleButtonValidity(form)
-      });
-    })
-  })
-}
-
-// Инициализируем валидацию форм
-function enableValidation(forms) {
-  enableValidationInputs(forms)
-};
-
 // Инициализация ------------------------------------------------------
 
 renderInitialCard(initialCards);
 initialEventsListeners();
-enableValidation([popupAddFormElements, popupEditFormElements]);
-

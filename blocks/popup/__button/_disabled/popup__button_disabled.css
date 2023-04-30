@@ -5,3 +5,7 @@
   color: #000;
   cursor: default;
 }
+
+.popup__button_disabled:hover {
+  background-color: white;
+}
