@@ -15,20 +15,6 @@ const cardsContainer = document.querySelector('.elements');
 const templateCard = document.querySelector('#elements__element').content;
 const allPopups = document.querySelectorAll('.popup');
 
-const popupAddFormElements = {
-  name: 'addForm',
-  inputs: popupAddForm.querySelectorAll('.popup__input'),
-  button: popupAddForm.querySelector('.popup__button'),
-  formElement: newPlaceAddForm
-}
-
-const popupEditFormElements = {
-  name: 'editForm',
-  inputs: popupEditForm.querySelectorAll('.popup__input'),
-  button: popupEditForm.querySelector('.popup__button'),
-  formElement: profileEditForm
-}
-
 // Функции ------------------------------------------------------
 
 // Активирует лайк карточки
@@ -73,13 +59,7 @@ function createCard(cardText, cardImgSrc) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-
-  popup.addEventListener('click', evt => { // Слушатель закрытия при нажатии на Overlay
-    if (evt.target.classList.contains('popup_opened')) {
-      closePopup(popup);
-    }
-  });
-}
+};
 
 // Закрывает попап
 function closePopup(popup) {
@@ -89,11 +69,19 @@ function closePopup(popup) {
 
 //Функция закрытия по клавише ESC
 function closePopupEsc(evt) {
-  popupOpened = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
-      closePopup(popupOpened);
+      closePopup(document.querySelector('.popup_opened'));
   };
 };
+
+// Слушатель закрытия при нажатии на Overlay
+allPopups.forEach((popup) => {
+  popup.addEventListener('click', (event) => {
+  if (event.target === popup) {
+    closePopup(popup);
+  }
+});
+});
 
 // Создание новой карточки из формы
 function handleEditFormSubmit(evt) {
@@ -131,17 +119,19 @@ function handleAddFormSubmit(evt) {
 
   closePopup(popupAddForm);
   evt.target.reset();
-}
+  evt.submitter.classList.add('popup__button_disabled')
+  evt.submitter.disabled = true;
+};
 
 // Инициализирует слушатели событий
 function initialEventsListeners() {
   popupAddButton.addEventListener('click', () => {
     openPopup(popupAddForm);
-    // disableButton(popupAddFormElements.button);
   });
 
+
   popupAddFormClose.addEventListener('click', () => {
-    closePopup(popupAddForm)
+    closePopup(popupAddForm);
   });
 
   newPlaceAddForm.addEventListener('submit', handleAddFormSubmit);
